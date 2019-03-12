@@ -1,4 +1,5 @@
 package BillardSimulation;
+
 import java.awt.Image;
 import javax.swing.ImageIcon;
 //TODO Transform the code to be used safely in a concurrent context.  
@@ -16,14 +17,16 @@ public class Ball {
 		image = ii.getImage();
 		
 		//TODO Depend of image size
-		IMG_TAM_X = 32;
-		IMG_TAM_Y = 32;
+		IMG_TAM_X = ii.getIconWidth();
+		IMG_TAM_Y = ii.getIconHeight();
 
 		
 		x = Billiards.Width/4-16;
 		y = Billiards.Height/2-16;
 		v = 5;
 		fi =  Math.random() * Math.PI * 2;
+		assert y>Board.TOPBOARD && y<Board.BOTTOMBOARD && x>Board.LEFTBOARD && x<Board.RIGHTBOARD: "La bola no puede sobrepasar los límites del tablero";
+
 	}
 
 	public void move() {
@@ -40,6 +43,8 @@ public class Ball {
 		reflect();
 		
 		//TODO Check postcondition
+		assert y>Board.TOPBOARD && y<Board.BOTTOMBOARD && x>Board.LEFTBOARD && x<Board.RIGHTBOARD: "La bola no puede sobrepasar los límites del tablero";
+
 	}
 
 	private void reflect() {
@@ -75,10 +80,14 @@ public class Ball {
 
 	public void setX(double x) {
 		this.x = x;
+		assert x>Board.LEFTBOARD && x<Board.RIGHTBOARD: "La bola no puede sobrepasar los límites del tablero";
+
 	}
 
 	public void setY(double y) {
 		this.y = y;
+		assert y>Board.TOPBOARD && y<Board.BOTTOMBOARD: "La bola no puede sobrepasar los límites del tablero";
+
 	}
 
 	public Image getImage() {
