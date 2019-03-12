@@ -1,0 +1,9 @@
+Practica 2 de programación concurrente y de tiempo real.
+Alumnos:
+Gonzalo Murillo Montes
+Alberto Suárez Ruiz
+Willow Maui García Moreno 
+
+
+https://github.com/gmm1002/2019PCTR_L02
+
